@@ -2,7 +2,7 @@ FROM alpine:3.12
 
 ADD conf /conf
 ADD entrypoint.sh /entrypoint.sh
-RUN apk add --update bash nano tzdata mpd icecast ncmpc supervisor nginx php7-fpm ca-certificates php7-pdo_mysql php7-mysqli php7-pdo php7-imagick php7-opcache php7-gd php7-session php7-mcrypt php7-ctype php7-xmlreader php7-xml php7-json php7-curl php7-phar php7-bcmath php7-dom php7-intl php7-pdo_sqlite php7-mbstring php7-zip php7-xmlwriter php7-iconv php7-simplexml php7-posix php7-pcntl \
+RUN apk add --update wget unzip bash nano tzdata mpd icecast ncmpc supervisor nginx php7-fpm ca-certificates php7-pdo_mysql php7-mysqli php7-pdo php7-imagick php7-opcache php7-gd php7-session php7-mcrypt php7-ctype php7-xmlreader php7-xml php7-json php7-curl php7-phar php7-bcmath php7-dom php7-intl php7-pdo_sqlite php7-mbstring php7-zip php7-xmlwriter php7-iconv php7-simplexml php7-posix php7-pcntl \
 && cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
 && echo "Europe/Moscow" > /etc/timezone \
 && apk del tzdata \
@@ -13,7 +13,11 @@ RUN apk add --update bash nano tzdata mpd icecast ncmpc supervisor nginx php7-fp
 && mv /etc/php7 /etc/default/php7 \
 && mkdir -p /etc/default/nginx/default.d \
 && mkdir /run/nginx \
-&& mkdir /run/php-fpm
+&& mkdir /run/php-fpm \
+&& wget https://github.com/fatg3erman/RompR/releases/download/1.48/rompr-1.48.zip \
+&& unzip rompr-*.zip \
+&& mv rompr /srv/ \
+&& rm -f rompr-*.zip
 ADD conf/supervisor/radio.ini /etc/supervisor.d/radio.ini
 ADD conf/supervisor/icecast.ini /etc/supervisor.d/icecast.ini
 ADD conf/supervisor/nginx.ini /etc/supervisor.d/nginx.ini

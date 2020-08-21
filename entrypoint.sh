@@ -12,6 +12,7 @@ then
   mkdir -p /etc/nginx/vhosts.d
   mkdir -p /etc/nginx/default.d
   mkdir -p /etc/nginx/ssl
+  ln -s /etc/nginx/vhosts.a/default /etc/nginx/vhosts.d/
 fi
 if [ ! -f /etc/php7/php.ini ]
 then
