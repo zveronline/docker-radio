@@ -14,7 +14,7 @@ RUN apk add --update wget unzip bash nano tzdata mpd icecast ncmpc supervisor ng
 && mkdir -p /etc/nginx/default.d \
 && mkdir /run/nginx \
 && mkdir /run/php-fpm \
-&& cd /tmp
+&& cd /tmp \
 && unzip rompr.zip \
 && mv rompr /srv/ \
 && rm -f rompr.zip
