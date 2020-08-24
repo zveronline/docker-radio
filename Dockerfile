@@ -30,7 +30,7 @@ ADD conf/php/php.ini /etc/php7/php.ini
 ADD conf/php/www.conf /etc/php7/php-fpm.d/www.conf
 RUN chown -R nginx:nginx /etc/php7 \
 && chown -R nginx:nginx /etc/nginx \
-&& chown -R nginx:nginx /srv
+&& chown -R nginx:nginx /srv \
 && rm -f /etc/nginx/conf.d/default.conf
 
 VOLUME ["/var/lib/mpd", "/var/log/mpd", "/var/log/icecast"]

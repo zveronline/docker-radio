@@ -2,7 +2,6 @@ server {
     listen       80 default_server;
     server_name  _;
     root         /srv/rompr;
-    index        index.php;
 
     # Load configuration files for the default server block.
     include /etc/nginx/default.d/*.conf;
