@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.12
 
 ENV ROMPR_VERSION 1.48
 
@@ -31,6 +31,7 @@ ADD conf/php/www.conf /etc/php7/php-fpm.d/www.conf
 RUN chown -R nginx:nginx /etc/php7 \
 && chown -R nginx:nginx /etc/nginx \
 && chown -R nginx:nginx /srv \
+&& chown root:root /usr/bin/mpd \
 && rm -f /etc/nginx/conf.d/default.conf
 
 VOLUME ["/var/lib/mpd", "/var/log/mpd", "/var/log/icecast"]
