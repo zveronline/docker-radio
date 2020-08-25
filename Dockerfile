@@ -1,6 +1,6 @@
-FROM alpine:3.11
+FROM alpine
 
-ENV ROMPR_VERSION 1.20
+ENV ROMPR_VERSION 1.48
 
 ADD conf /conf
 ADD entrypoint.sh /entrypoint.sh
