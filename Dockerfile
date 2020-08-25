@@ -30,10 +30,11 @@ ADD conf/php/php.ini /etc/php7/php.ini
 ADD conf/php/www.conf /etc/php7/php-fpm.d/www.conf
 RUN chown -R nginx:nginx /etc/php7 \
 && chown -R nginx:nginx /etc/nginx \
-&& chown -R nginx:nginx /srv \
 && chown root:root /usr/bin/mpd \
-&& rm -f /etc/nginx/conf.d/default.conf
+&& rm -f /etc/nginx/conf.d/default.conf \
+&& mkdir -p /srv/rompr/prefs \
+&& chown -R nginx:nginx /srv
 
-VOLUME ["/var/lib/mpd", "/var/log/mpd", "/var/log/icecast"]
+VOLUME ["/var/lib/mpd", "/var/log/mpd", "/var/log/icecast", "/srv/rompr/prefs", "/srv/rompr/albumart"]
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
 ENTRYPOINT ["/entrypoint.sh"]
