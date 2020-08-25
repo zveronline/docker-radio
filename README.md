@@ -42,7 +42,7 @@ services:
     image: zveronline/radio
     container_name: radio
     volumes:
-      - /mnt/data1/nextcloud/Music:/Music
+      - /yourpath/Music:/Music
       - mpd:/var/lib/mpd
       - rompr-db:/srv/rompr/prefs
       - rompr-albumart:/srv/rompr/albumart
