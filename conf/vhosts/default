@@ -1,5 +1,6 @@
 server {
     listen       80 default_server;
+    server_name _;
     root         /srv/rompr;
     index index.php index.html index.htm;
 
@@ -8,7 +9,6 @@ server {
 
     location / {
     allow all;
-    try_files $uri $uri/ /index.php?$uri&$args;
     index index.php;
     }
 
