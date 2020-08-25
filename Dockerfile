@@ -35,6 +35,6 @@ RUN chown -R nginx:nginx /etc/php7 \
 && mkdir -p /srv/rompr/prefs \
 && chown -R nginx:nginx /srv
 
-VOLUME ["/var/lib/mpd", "/var/log/mpd", "/var/log/icecast", "/srv/rompr/prefs", "/srv/rompr/albumart"]
+VOLUME ["/var/lib/mpd", "/srv/rompr/prefs", "/srv/rompr/albumart"]
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
 ENTRYPOINT ["/entrypoint.sh"]
