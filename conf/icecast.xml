@@ -28,7 +28,7 @@
 
         <!-- Admin logs in with the username given below -->
         <admin-user>admin</admin-user>
-        <admin-password>qwe123</admin-password>
+        <admin-password>ADMIN_PASSWORD</admin-password>
     </authentication>
 
     <!-- set the mountpoint for a shoutcast source to use, the default if not
