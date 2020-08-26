@@ -11,6 +11,7 @@ sed -i s/BITRATE/$BITRATE/g /conf/radio.conf
 sed -i s/ENCODER/$ENCODER/g /conf/radio.conf
 sed -i s/MOUNT/$MOUNT/g /conf/radio.conf
 sed -i s/ICECAST_HOST/$ICECAST_HOST/g /conf/radio.conf
+sed -i s/ICECAST_PASSWORD/$ICECAST_PASSWORD/g /conf/radio.conf
 
 if [ ! $ICECAST_HOST == 127.0.0.1 ]
 then

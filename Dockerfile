@@ -5,7 +5,8 @@ ADMIN_PASSWORD=qwe123test \
 BITRATE=256 \
 ENCODER=ogg \
 MOUNT=radio.ogg \
-ICECAST_HOST=127.0.0.1
+ICECAST_HOST=127.0.0.1 \
+ICECAST_PASSWORD=qwe123
 
 ADD conf /conf
 ADD entrypoint.sh /entrypoint.sh
