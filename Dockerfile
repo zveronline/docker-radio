@@ -2,7 +2,9 @@ FROM alpine:3.12
 
 ENV ROMPR_VERSION=1.48 \
 ADMIN_PASSWORD=qwe123test \
-BITRATE="256"
+BITRATE=256 \
+ENCODER=ogg \
+MOUNT=radio.ogg
 
 ADD conf /conf
 ADD entrypoint.sh /entrypoint.sh
