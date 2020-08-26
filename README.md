@@ -41,6 +41,13 @@ services:
   radio:
     image: zveronline/radio
     container_name: radio
+    environment:
+      ADMIN_PASSWORD: qwe123test
+      BITRATE: 256
+      ENCODER: ogg
+      MOUNT: radio.ogg
+      ICECAST_HOST: 127.0.0.1
+      ICECAST_PASSWORD: qwe123
     volumes:
       - /yourpath/Music:/Music
       - mpd:/var/lib/mpd
