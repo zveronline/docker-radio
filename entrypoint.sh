@@ -6,6 +6,6 @@ then
 mkdir /var/lib/mpd/playlists
 fi
 
-sed -i /conf/icecast.xml s/ADMIN_PASSWORD/$ADMIN_PASSWORD/g
+sed -i s/ADMIN_PASSWORD/$ADMIN_PASSWORD/g /conf/icecast.xml
 
 exec "$@"
