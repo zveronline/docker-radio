@@ -1,6 +1,7 @@
 FROM alpine:3.12
 
-ENV ROMPR_VERSION 1.48
+ENV ROMPR_VERSION=1.48 \
+ADMIN_PASSWORD=qwe123test
 
 ADD conf /conf
 ADD entrypoint.sh /entrypoint.sh
