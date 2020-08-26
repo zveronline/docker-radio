@@ -4,7 +4,8 @@ ENV ROMPR_VERSION=1.48 \
 ADMIN_PASSWORD=qwe123test \
 BITRATE=256 \
 ENCODER=ogg \
-MOUNT=radio.ogg
+MOUNT=radio.ogg \
+ICECAST_HOST=127.0.0.1
 
 ADD conf /conf
 ADD entrypoint.sh /entrypoint.sh
