@@ -1,7 +1,8 @@
 FROM alpine:3.12
 
 ENV ROMPR_VERSION=1.48 \
-ADMIN_PASSWORD=qwe123test
+ADMIN_PASSWORD=qwe123test \
+BITRATE=256
 
 ADD conf /conf
 ADD entrypoint.sh /entrypoint.sh
@@ -18,18 +19,18 @@ RUN apk add --update wget unzip bash nano tzdata mpd icecast ncmpc supervisor ng
 && cd /tmp \
 && unzip rompr.zip \
 && mv rompr /srv/ \
-&& rm -f rompr.zip
-ADD conf/supervisor/radio.ini /etc/supervisor.d/radio.ini
-ADD conf/supervisor/icecast.ini /etc/supervisor.d/icecast.ini
-ADD conf/supervisor/nginx.ini /etc/supervisor.d/nginx.ini
-ADD conf/supervisor/php-fpm.ini /etc/supervisor.d/php-fpm.ini
-ADD conf/vhosts /etc/nginx/vhosts.d/
-ADD conf/nginx/nginx.conf /etc/nginx/nginx.conf
-ADD conf/nginx/php-fpm.conf /etc/nginx/conf.d/php-fpm.conf
-ADD conf/nginx/php.conf /etc/nginx/default.d/php.conf
-ADD conf/php/php.ini /etc/php7/php.ini
-ADD conf/php/www.conf /etc/php7/php-fpm.d/www.conf
-RUN chown -R nginx:nginx /etc/php7 \
+&& rm -f rompr.zip \
+&& ln -sf /conf/supervisor/radio.ini /etc/supervisor.d/radio.ini \
+&& ln -sf /conf/supervisor/icecast.ini /etc/supervisor.d/icecast.ini \
+&& ln -sf /conf/supervisor/nginx.ini /etc/supervisor.d/nginx.ini \
+&& ln -sf /conf/supervisor/php-fpm.ini /etc/supervisor.d/php-fpm.ini \
+&& ln -sf /conf/vhosts /etc/nginx/vhosts.d \
+&& ln -sf /conf/nginx/nginx.conf /etc/nginx/nginx.conf \
+&& ln -sf /conf/nginx/php-fpm.conf /etc/nginx/conf.d/php-fpm.conf \
+&& ln -sf /conf/nginx/php.conf /etc/nginx/default.d/php.conf \
+&& ln -sf /conf/php/php.ini /etc/php7/php.ini \
+&& ln -sf /conf/php/www.conf /etc/php7/php-fpm.d/www.conf \
+&& chown -R nginx:nginx /etc/php7 \
 && chown -R nginx:nginx /etc/nginx \
 && chown root:root /usr/bin/mpd \
 && rm -f /etc/nginx/conf.d/default.conf \
