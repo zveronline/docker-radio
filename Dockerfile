@@ -2,7 +2,7 @@ FROM alpine:3.12
 
 ENV ROMPR_VERSION=1.48 \
 ADMIN_PASSWORD=qwe123test \
-NAMESTREAM='radio stream' \
+NAMESTREAM=radio \
 DESCRIPTION=radio \
 URL=http://example.com/radio.ogg \
 BITRATE=256 \
