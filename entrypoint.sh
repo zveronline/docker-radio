@@ -7,6 +7,7 @@ mkdir /var/lib/mpd/playlists
 fi
 
 sed -i s/ADMIN_PASSWORD/$ADMIN_PASSWORD/g /conf/icecast.xml
+sed -i s/HOSTNAME/$HOSTNAME/g /conf/icecast.xml
 sed -i s/NAMESTREAM/$NAMESTREAM/g /conf/radio.conf
 sed -i s/DESCRIPTION/$DESCRIPTION/g /conf/radio.conf
 sed -i s/BITRATE/$BITRATE/g /conf/radio.conf

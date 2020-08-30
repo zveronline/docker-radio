@@ -2,6 +2,7 @@ FROM alpine:3.12
 
 ENV ROMPR_VERSION=1.48 \
 ADMIN_PASSWORD=qwe123test \
+HOSTNAME=localhost \
 NAMESTREAM=radio \
 DESCRIPTION=radio \
 BITRATE=256 \
