@@ -23,6 +23,7 @@ Run the image
 ```
 docker run --name radio -d \
    --volume /yourpath/Music:/Music \
+   --volume radio-config:/config \
    --volume mpd:/var/lib/mpd \
    --volume rompr-db:/srv/rompr/prefs \
    --volume rompr-albumart:/srv/rompr/albumart \
@@ -50,6 +51,7 @@ services:
       ICECAST_PASSWORD: qwe123
     volumes:
       - /yourpath/Music:/Music
+      - radio-config:/config
       - mpd:/var/lib/mpd
       - rompr-db:/srv/rompr/prefs
       - rompr-albumart:/srv/rompr/albumart
